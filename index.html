@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{project.meta.ogDescription}}">
+  <meta name="theme-color" content="#ffffff">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="robots" content="{{project.meta.robotsMeta}}">
+
+  <title>Text Utils</title>
+  <!-- SEO Description -->
+  <meta name="description" content="{{project.seoDescription}}">
+
+  <!-- Performance optimization: Preload critical resources -->
+  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+
+  <!-- Header Scripts -->
+  <script id="header-scripts">
+    // This script tag will be replaced with actual scripts.head content
+    if (window.scripts && window.scripts.head) {
+      document.getElementById('header-scripts').outerHTML = window.scripts.head;
+    }
+  </script>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Font stylesheet -->
+
+  <script type="application/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+  <!-- Core CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: '{{settings.colors.primary}}',
+                50: '#f8f8f8',
+                100: '#e8e8e8',
+                200: '#d3d3d3',
+                300: '#a3a3a3',
+                400: '#737373',
+                500: '#525252',
+                600: '#404040',
+                700: '#262626',
+                800: '#171717',
+                900: '#0a0a0a',
+                950: '#030303',
+              },
+              secondary: {
+                DEFAULT: '{{settings.colors.secondary}}',
+                50: '#f8f8f8',
+                100: '#e8e8e8',
+                200: '#d3d3d3',
+                300: '#a3a3a3',
+                400: '#737373',
+                500: '#525252',
+                600: '#404040',
+                700: '#262626',
+                800: '#171717',
+                900: '#0a0a0a',
+                950: '#030303',
+              },
+              accent: {
+                DEFAULT: '{{settings.colors.accent}}',
+                50: '#f8f8f8',
+                100: '#e8e8e8',
+                200: '#d3d3d3',
+                300: '#a3a3a3',
+                400: '#737373',
+                500: '#525252',
+                600: '#404040',
+                700: '#262626',
+                800: '#171717',
+                900: '#0a0a0a',
+                950: '#030303',
+              },
+            },
+            fontFamily: {
+              sans: ['{{settings.fonts.primary}}', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
+              heading: ['{{settings.fonts.secondary}}', 'Inter', 'system-ui', 'sans-serif'],
+              body: ['{{settings.fonts.secondary}}', 'Inter', 'system-ui', 'sans-serif'],
+            },
+            spacing: {
+              '18': '4.5rem',
+              '22': '5.5rem',
+              '30': '7.5rem',
+            },
+            maxWidth: {
+              '8xl': '88rem',
+              '9xl': '96rem',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-in',
+              'fade-out': 'fadeOut 0.5s ease-out',
+              'slide-up': 'slideUp 0.5s ease-out',
+              'slide-down': 'slideDown 0.5s ease-out',
+              'slide-left': 'slideLeft 0.5s ease-out',
+              'slide-right': 'slideRight 0.5s ease-out',
+              'scale-in': 'scaleIn 0.5s ease-out',
+              'scale-out': 'scaleOut 0.5s ease-out',
+              'spin-slow': 'spin 3s linear infinite',
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'bounce-slow': 'bounce 3s infinite',
+              'float': 'float 3s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              fadeOut: {
+                '0%': { opacity: '1' },
+                '100%': { opacity: '0' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideDown: {
+                '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideLeft: {
+                '0%': { transform: 'translateX(20px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideRight: {
+                '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.9)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+              scaleOut: {
+                '0%': { transform: 'scale(1.1)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+            },
+            aspectRatio: {
+              'portrait': '3/4',
+              'landscape': '4/3',
+              'ultrawide': '21/9',
+            },
+          },
+        },
+        variants: {
+          extend: {
+            opacity: ['disabled'],
+            cursor: ['disabled'],
+            backgroundColor: ['active', 'disabled'],
+            textColor: ['active', 'disabled'],
+          },
+        },
+      }
+    });
+  </script>
+
+  <!-- Utilities and Components -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+
+  <!-- Optimized Font Loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Dynamic Meta Tags -->
+  <meta name="description" content="{{project.meta.ogDescription}}">
+  <meta name="keywords" content="{{project.meta.keywords}}">
+  <meta name="robots" content="{{project.meta.robotsMeta}}">
+  <meta name="google-site-verification" content="{{project.meta.googleVerification}}">
+  <meta name="baidu-verification" content="{{project.meta.baiduVerification}}">
+  <meta name="yandex-verification" content="{{project.meta.yandexVerification}}">
+  <meta name="bing-verification" content="{{project.meta.bingVerification}}">
+  <meta property="og:title" content="{{project.meta.ogTitle}}">
+  <meta property="og:description" content="{{project.meta.ogDescription}}">
+  <meta property="og:image" content="{{project.meta.ogImage}}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="{{project.name}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{project.meta.ogTitle}}">
+  <meta name="twitter:description" content="{{project.meta.ogDescription}}">
+  <meta name="twitter:image" content="{{project.meta.ogImage}}">
+
+
+  <link rel="icon" type="image/x-icon" href="{{settings.favicon}}">
+
+</head>
+
+<body class="antialiased text-gray-800 min-h-screen flex flex-col" style="font-family:Verdana">
+  <!-- Skip to main content link for accessibility -->
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+    Skip to main content
+  </a>
+
+  <!-- Main content area -->
+  <main id="main-content" class="flex-1 relative h-full">
+    <!-- Content will be injected here -->
+  </main>
+
+  <!-- {bodyScripts} -->
+
+</body>
+
+</html>
+<script>window.projectId = "693db855-4558-4fa0-8467-e4a3568c3be6";</script>
+<div id='RolloutPageContent'>
+  <element id="b5cd8f8c-1f0a-441d-a621-7cad6df31ead" data-section-id="b5cd8f8c-1f0a-441d-a621-7cad6df31ead">
+
+
+    <div id="root">
+      <div class="relative" x-data="{ isOpen: false }">
+        <nav class="bg-gray-900 border-b border-gray-800" aria-label="Main navigation">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+              <div class="flex items-center">
+                <a href="#" class="text-white font-bold text-xl">Text Utils</a>
+              </div>
+
+              <div class="hidden lg:block">
+                <ul class="flex space-x-8">
+                  <li><a href="index.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm">Home</a>
+                  </li>
+                  <li><a href="https://hades248.github.io/Resume/" target="_blank"
+                      class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm">Contact</a></li>
+                </ul>
+              </div>
+
+              <div class="lg:hidden">
+                <button @click="isOpen = !isOpen" type="button" class="text-gray-400 hover:text-white"
+                  aria-controls="mobile-menu" aria-expanded="false">
+                  <svg x-show="!isOpen" x-cloak class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                  <svg x-show="isOpen" x-cloak class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div x-show="isOpen" x-cloak @click.away="isOpen = false"
+            @resize.window="if (window.innerWidth > 1024) isOpen = false" class="lg:hidden" id="mobile-menu">
+            <ul class="px-2 pt-2 pb-3 space-y-1 bg-gray-900">
+              <li><a href="#" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base">Home</a></li>
+              <li><a href="https://hades248.github.io/Resume/" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </element>
+  <element id="f7628384-ab08-4a09-b470-b149a24a03ec" data-section-id="f7628384-ab08-4a09-b470-b149a24a03ec">
+
+
+    <div id="root">
+      <section id="texteditor" class="min-h-screen bg-gray-900 py-12" x-data="{ 
+        text: '', 
+        upperCase: false,
+        lowerCase: false,
+        wordCount: 0,
+        charCount: 0,
+        updateCounts() {
+            this.wordCount = this.text.trim() ? this.text.trim().split(/\s+/).length : 0;
+            this.charCount = this.text.length;
+        }
+    }">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="bg-gray-800 rounded-lg shadow-lg p-6">
+            <div class="mb-6">
+              <textarea x-model="text" @input="updateCounts"
+                class="w-full h-64 p-4 bg-gray-700 text-white rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none"
+                placeholder="Enter your text here..." aria-label="Text input area"></textarea>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div class="bg-gray-700 p-4 rounded-lg">
+                <p class="text-gray-300">Word Count: <span x-text="wordCount" class="text-white font-semibold"></span>
+                </p>
+              </div>
+              <div class="bg-gray-700 p-4 rounded-lg">
+                <p class="text-gray-300">Character Count: <span x-text="charCount"
+                    class="text-white font-semibold"></span></p>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-4">
+              <button @click="text = text.toUpperCase()"
+                class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+                Convert to Uppercase
+              </button>
+              <button @click="text = text.toLowerCase()"
+                class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+                Convert to Lowercase
+              </button>
+              <button @click="text = text.trim()"
+                class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+                Remove Extra Spaces
+              </button>
+              <button @click="text = ''"
+                class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition-colors">
+                Clear Text
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-8 bg-gray-800 rounded-lg shadow-lg p-6">
+            <h2 class="text-xl text-white font-semibold mb-4">Preview</h2>
+            <div class="bg-gray-700 p-4 rounded-lg">
+              <p x-text="text || 'Your text will appear here...'" class="text-gray-300"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </element>
+</div>
+<div id="page_complete">
+  <script src="/edit/edit.js"></script>
+  <script>
+    console.log('Page complete');
+
+  </script>
+  </body>
+
+  </html>
